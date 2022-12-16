@@ -1,4 +1,5 @@
 export const menu = () => {
+  // Second phone
   const arrow = document.querySelector(".header-contacts__arrow");
   const secondPhoneNumBlock = document.querySelector(
     ".header-contacts__phone-number-accord"
@@ -17,6 +18,27 @@ export const menu = () => {
       secondPhoneNumBlock.style.transitionDuration = "0";
       secondPhoneNumBlock.style.top = "0";
       secondPhoneNumBlock.children[0].style.opacity = "0";
+    }
+  });
+
+  //Menu button
+  const menuBtn = document.querySelector(".menu");
+  const menuBlock = document.querySelector(".popup-menu");
+
+  menuBtn.addEventListener("click", () => {
+    menuBlock.style.visibility = "visible";
+    menuBlock.children[0].style.right = "645px";
+  });
+
+  menuBlock.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    if (
+      !e.target.closest(".popup-dialog-menu") ||
+      e.target.closest(".close-menu")
+    ) {
+      menuBlock.style.visibility = "hidden";
+      menuBlock.children[0].style.right = "0px";
     }
   });
 };
