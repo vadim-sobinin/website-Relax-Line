@@ -27,25 +27,25 @@ export const menu = () => {
   const menuBtn = document.querySelector(".menu");
   const menuBlock = document.querySelector(".popup-menu");
 
-  menuBtn.addEventListener("click", () => {
+  menuBtn.addEventListener("click", (e) => {
     menuBlock.style.visibility = "visible";
     blockBody();
 
     if (innerWidth >= 576) {
-      menuBlock.children[0].style.right =
-        menuBlock.children[0].clientWidth + "px";
+      menuBlock.children[0].style.transform = "translate3d(0, 0, 0)";
     } else {
-      menuBlock.children[0].style.top =
-        menuBlock.children[0].clientHeight + "px";
+      console.log(menuBlock.children[0].scrollHeight);
+      menuBlock.children[0].style.transform = "translate3d(0, 0vh, 0)";
+      // menuBlock.children[0].clientHeight + "px";
     }
   });
 
   const hideMenu = () => {
     menuBlock.style.visibility = "hidden";
     if (innerWidth >= 576) {
-      menuBlock.children[0].style.right = "0px";
+      menuBlock.children[0].style.transform = "translate3d(645px, 0, 0)";
     } else {
-      menuBlock.children[0].style.top = "0px";
+      menuBlock.children[0].style.transform = "translate3d(0, -100vh, 0)";
     }
   };
 
@@ -58,6 +58,22 @@ export const menu = () => {
       unBlockBody();
       hideMenu();
     }
+
+    if (e.target.closest(".popup-menu-nav__item")) {
+      console.log(e.target.closest(".popup-menu-nav__item").children[0].hash);
+      const selectedSection = e.target.closest(".popup-menu-nav__item")
+        .children[0].hash;
+      document
+        .querySelector(selectedSection)
+        .scrollIntoView({ behavior: "smooth" });
+      unBlockBody();
+      hideMenu();
+    }
+  });
+
+  document.querySelector(".button-footer").addEventListener("click", (e) => {
+    e.preventDefault();
+    document.querySelector("#main").scrollIntoView({ behavior: "smooth" });
   });
 
   const menuLink = document.querySelector(".link-list-menu");
@@ -88,6 +104,50 @@ export const menu = () => {
     ) {
       unBlockBody();
       servisesList.style.visibility = "hidden";
+    }
+  });
+
+  // popup-privacy
+
+  const privacyLinks = document.querySelectorAll(".link-privacy");
+  const privacyPopupBlock = document.querySelector(".popup-privacy");
+
+  privacyLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      blockBody();
+      privacyPopupBlock.style.visibility = "visible";
+    });
+  });
+
+  const consultationPopupBlock = document.querySelector(".popup-consultation");
+
+  privacyPopupBlock.addEventListener("click", (e) => {
+    if (
+      !e.target.closest(".popup-dialog-privacy") ||
+      e.target.closest(".close")
+    ) {
+      consultationPopupBlock.style.visibility == "visible"
+        ? null
+        : unBlockBody();
+      privacyPopupBlock.style.visibility = "hidden";
+    }
+  });
+
+  // popup-consultation
+
+  const consultationBtns = document.querySelectorAll(".button_wide");
+
+  consultationBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      blockBody();
+      consultationPopupBlock.style.visibility = "visible";
+    });
+  });
+
+  consultationPopupBlock.addEventListener("click", (e) => {
+    if (!e.target.closest(".feedback-wrap") || e.target.closest(".close")) {
+      unBlockBody();
+      consultationPopupBlock.style.visibility = "hidden";
     }
   });
 };

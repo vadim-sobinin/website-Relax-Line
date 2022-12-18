@@ -17,7 +17,8 @@
     "inputmask": "^5.0.7",
     "notiflix": "^3.2.5",
     "sweetalert2": "^11.6.15",
-    "swiper": "^8.4.5"
+    "swiper": "^8.4.5",
+    "validator": "^13.7.0"
   },
   "devDependencies": {
     "webpack": "^5.65.0",
