@@ -13,4 +13,8 @@ formControl("#feedback4");
 formControl("#feedback5");
 formControl("#feedback6");
 menu();
-servecesList();
+
+//Debug
+const servisesList = document.querySelector(".popup-repair-types");
+servecesList(servisesList);
+servisesList.style.visibility = "visible";

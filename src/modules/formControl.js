@@ -59,14 +59,17 @@ export const formControl = (formSelector) => {
     sendData(dataObj)
       .then((data) => {
         Loading.remove();
-        Report.success(
-          "Ваш запрос успешно отправлен!",
-          "Спасибо! Наш менеджер скоро с Вами свяжется",
-          "Хорошо",
-          {
-            zindex: 10000,
+
+        const thankYouPopup = document.querySelector(".popup-thank");
+        thankYouPopup.style.visibility = "visible";
+        thankYouPopup.addEventListener("click", (e) => {
+          if (
+            !e.target.closest(".popup-thank-bg") ||
+            e.target.closest(".close")
+          ) {
+            thankYouPopup.style.visibility = "hidden";
           }
-        );
+        });
       })
 
       .catch((err) => {

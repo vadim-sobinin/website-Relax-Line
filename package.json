@@ -9,6 +9,8 @@
     "server": "json-server --watch db/db.json --port 4545",
     "start": "webpack serve --mode=development --open-app-name 'Google Chrome --w'"
   },
+
+    
   "keywords": [],
   "author": "",
   "license": "ISC",
