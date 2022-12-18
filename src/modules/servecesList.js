@@ -40,6 +40,7 @@ export const servecesList = (mainBlock) => {
     Loading.standard({
       zindex: 10000,
     });
+    categoryTitleBlock.innerHTML = "";
     categoryTitleBlock.innerHTML = selectedCategory;
     tableBody.innerHTML = "";
 
