@@ -6,6 +6,8 @@
 // import "swiper/css/pagination";
 // import "swiper/css/bundle";
 
+import Swiper from "swiper";
+
 // import Swiper from "swiper";
 
 export const sliders = () => {
@@ -20,6 +22,16 @@ export const sliders = () => {
   const repairSliders = document.querySelector(".repair-types-slider").children;
   const repairNavList = document.querySelector(".nav-list-repair");
   const navButtons = repairNavList.querySelectorAll(".repair-types-nav__item");
+
+  const servicesTypeSlider = new Swiper(".nav-list-repair", {
+    // wrapperClass: 'nav-list-repair',
+    // slideClass: 'slide',
+    // slideToClickedSlide: true,
+    slidesPerView: 5,
+
+    direction: "vertical",
+    spaceBetween: 10,
+  });
 
   document.getElementById("repair-counter").style.zIndex = "10";
   const createSlider = (selector) => {
@@ -49,6 +61,18 @@ export const sliders = () => {
     createSlider(".types-repair5"),
   ];
 
+  const changeSlider = (sliderNumber) => {
+    console.log(sliderNumber);
+    sliderArray.forEach((slider, index) => {
+      slider.disable();
+      repairSliders[index].style.display = "none";
+    });
+    sliderArray[sliderNumber - 1].enable();
+    console.log(sliderArray[sliderNumber - 1]);
+    // sliderArray[sliderNumber - 1].navigation.init();
+    repairSliders[sliderNumber - 1].style.display = "block";
+  };
+
   repairNavList.addEventListener("click", (e) => {
     if (e.target.closest(".repair-types-nav__item")) {
       navButtons.forEach((btn) => {
@@ -63,13 +87,7 @@ export const sliders = () => {
 
       e.target.closest(".repair-types-nav__item").classList.add("active");
 
-      sliderArray.forEach((slider, index) => {
-        slider.disable();
-        repairSliders[index].style.display = "none";
-      });
-      sliderArray[selectedItemNumber - 1].enable();
-      sliderArray[selectedItemNumber - 1].pagination.update();
-      repairSliders[selectedItemNumber - 1].style.display = "block";
+      changeSlider(selectedItemNumber);
     }
   });
 };
