@@ -1,22 +1,39 @@
-const path = require('path');
+const path = require("path");
 
 module.exports = {
-  context: path.resolve(__dirname, 'src'),
+  context: path.resolve(__dirname, "src"),
   entry: "./index.js",
   output: {
     filename: "js/main.js",
-    path: path.resolve(__dirname, "public")
+    path: path.resolve(__dirname, "public"),
   },
   devServer: {
     hot: true,
     static: {
-      directory: './public',
-      watch: true
+      directory: "./public",
+      watch: true,
     },
     open: {
       app: {
         name: "Google Chrome",
       },
     },
+  },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              importLoaders: 1,
+              modules: true,
+            },
+          },
+        ],
+      },
+    ],
   },
 };

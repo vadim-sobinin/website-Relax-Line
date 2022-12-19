@@ -2,7 +2,13 @@ import Inputmask from "inputmask";
 
 export const phoneMask = (inputSel) => {
   const inputs = document.querySelectorAll(inputSel);
-  const mask = new Inputmask("+9(999) 999-99-99");
+  const mask = new Inputmask({
+    mask: "(+7|8) (999) 999-99-99",
+    showMaskOnHover: false,
+    showMaskOnFocus: false,
+    jitMasking: true,
+    inputmode: "tel",
+  });
   inputs.forEach((input) => {
     mask.mask(input);
   });

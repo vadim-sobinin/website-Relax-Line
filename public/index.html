@@ -15,8 +15,18 @@
       href="https://fonts.googleapis.com/css?family=Montserrat+Alternates:400,600,700,800,900&amp;subset=cyrillic,cyrillic-ext"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+    />
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/sliderStyle.css" />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"
+    ></script>
     <script src="./js/main.js" defer></script>
+
     <title>Relax Live</title>
   </head>
   <body>
@@ -603,26 +613,37 @@
           <div class="repair-types-slider-wrap">
             <div class="repair-types-slider">
               <div class="types-repair1">
-                <div class="repair-types-slider__slide">
-                  <img src="./images/repair-types/electro.jpg" alt="electro" />
-                </div>
-                <div class="repair-types-slider__slide">
-                  <img
-                    src="./images/repair-types/cosmetic.jpg"
-                    alt="cosmetic"
-                  />
-                </div>
-                <div class="repair-types-slider__slide">
-                  <img src="./images/repair-types/capital.jpg" alt="capital" />
-                </div>
-                <div class="repair-types-slider__slide">
-                  <img src="./images/repair-types/electro.jpg" alt="electro" />
-                </div>
-                <div class="repair-types-slider__slide">
-                  <img
-                    src="./images/repair-types/cosmetic.jpg"
-                    alt="cosmetic"
-                  />
+                <div class="swiper-wrapper">
+                  <div class="repair-types-slider__slide swiper-slide">
+                    <img
+                      src="./images/repair-types/electro.jpg"
+                      alt="electro"
+                    />
+                  </div>
+                  <div class="repair-types-slider__slide swiper-slide">
+                    <img
+                      src="./images/repair-types/cosmetic.jpg"
+                      alt="cosmetic"
+                    />
+                  </div>
+                  <div class="repair-types-slider__slide swiper-slide">
+                    <img
+                      src="./images/repair-types/capital.jpg"
+                      alt="capital"
+                    />
+                  </div>
+                  <div class="repair-types-slider__slide swiper-slide">
+                    <img
+                      src="./images/repair-types/electro.jpg"
+                      alt="electro"
+                    />
+                  </div>
+                  <div class="repair-types-slider__slide swiper-slide">
+                    <img
+                      src="./images/repair-types/cosmetic.jpg"
+                      alt="cosmetic"
+                    />
+                  </div>
                 </div>
               </div>
               <div class="types-repair2">
@@ -687,10 +708,10 @@
               class="slider-counter slider-counter-repair slider-counter-responsive"
               id="repair-counter"
             >
-              <div class="slider-counter-content">
+              <!-- <div class="slider-counter-content">
                 <div class="slider-counter-content__current">1</div>
                 <div class="slider-counter-content__total">3</div>
-              </div>
+              </div> -->
             </div>
             <div
               class="slider-arrow slider-arrow_left"
@@ -1609,69 +1630,76 @@
           </svg>
         </div>
         <div class="reviews-slider">
-          <div class="reviews-slider__slide">
-            <div class="reviews-slider__slide-img">
-              <img src="./images/reviews/ava1.jpg" alt="" />
+          <div class="swiper-wrapper">
+            <div class="reviews-slider__slide swiper-slide">
+              <div class="reviews-slider__slide-img">
+                <img src="./images/reviews/ava1.jpg" alt="" />
+              </div>
+              <div class="reviews-slider__slide-date">05.02.2020</div>
+              <div class="reviews-slider__slide-title">Анютка Дюгурова</div>
+              <div class="reviews-slider__slide-descr">
+                Выражаю свою благодарность компании, проводившей полный ремонт
+                *под ключ* в моей однокомнатной квартире. Предварительная смета
+                была расписана подробно, понятно по каждому виду работ.
+                Фактическая смета ...
+                <a class="link-reviews-detail">Подробнее</a>
+              </div>
             </div>
-            <div class="reviews-slider__slide-date">05.02.2020</div>
-            <div class="reviews-slider__slide-title">Анютка Дюгурова</div>
-            <div class="reviews-slider__slide-descr">
-              Выражаю свою благодарность компании, проводившей полный ремонт
-              *под ключ* в моей однокомнатной квартире. Предварительная смета
-              была расписана подробно, понятно по каждому виду работ.
-              Фактическая смета ... <a class="link-reviews-detail">Подробнее</a>
+            <div class="reviews-slider__slide swiper-slide">
+              <div class="reviews-slider__slide-img">
+                <img src="./images/reviews/ava2.jpg" alt="" />
+              </div>
+              <div class="reviews-slider__slide-date">08.03.2020</div>
+              <div class="reviews-slider__slide-title">Дюгурова Анютка</div>
+              <div class="reviews-slider__slide-descr">
+                Предварительная смета была расписана подробно, понятно по
+                каждому виду работ. Фактическая смета Выражаю свою благодарность
+                компании, проводившей полный ремонт *под ключ* в моей
+                однокомнатной квартире...
+                <a class="link-reviews-detail">Подробнее</a>
+              </div>
             </div>
-          </div>
-          <div class="reviews-slider__slide">
-            <div class="reviews-slider__slide-img">
-              <img src="./images/reviews/ava2.jpg" alt="" />
+            <div class="reviews-slider__slide swiper-slide">
+              <div class="reviews-slider__slide-img">
+                <img src="./images/reviews/ava3.jpg" alt="" />
+              </div>
+              <div class="reviews-slider__slide-date">05.12.2020</div>
+              <div class="reviews-slider__slide-title">Анютка Дюгурова</div>
+              <div class="reviews-slider__slide-descr">
+                Выражаю свою благодарность компании, проводившей полный ремонт
+                *под ключ* в моей однокомнатной квартире. Предварительная смета
+                была расписана подробно, понятно по каждому виду работ.
+                Фактическая смета ...
+                <a class="link-reviews-detail">Подробнее</a>
+              </div>
             </div>
-            <div class="reviews-slider__slide-date">08.03.2020</div>
-            <div class="reviews-slider__slide-title">Дюгурова Анютка</div>
-            <div class="reviews-slider__slide-descr">
-              Предварительная смета была расписана подробно, понятно по каждому
-              виду работ. Фактическая смета Выражаю свою благодарность компании,
-              проводившей полный ремонт *под ключ* в моей однокомнатной
-              квартире... <a class="link-reviews-detail">Подробнее</a>
+            <div class="reviews-slider__slide swiper-slide">
+              <div class="reviews-slider__slide-img">
+                <img src="./images/reviews/ava4.jpg" alt="" />
+              </div>
+              <div class="reviews-slider__slide-date">05.02.2020</div>
+              <div class="reviews-slider__slide-title">Анютка Дюгурова</div>
+              <div class="reviews-slider__slide-descr">
+                Предварительная смета была расписана подробно, понятно по
+                каждому виду работ. Фактическая смета Выражаю свою благодарность
+                компании, проводившей полный ремонт *под ключ* в моей
+                однокомнатной квартире...
+                <a class="link-reviews-detail">Подробнее</a>
+              </div>
             </div>
-          </div>
-          <div class="reviews-slider__slide">
-            <div class="reviews-slider__slide-img">
-              <img src="./images/reviews/ava3.jpg" alt="" />
-            </div>
-            <div class="reviews-slider__slide-date">05.12.2020</div>
-            <div class="reviews-slider__slide-title">Анютка Дюгурова</div>
-            <div class="reviews-slider__slide-descr">
-              Выражаю свою благодарность компании, проводившей полный ремонт
-              *под ключ* в моей однокомнатной квартире. Предварительная смета
-              была расписана подробно, понятно по каждому виду работ.
-              Фактическая смета ... <a class="link-reviews-detail">Подробнее</a>
-            </div>
-          </div>
-          <div class="reviews-slider__slide">
-            <div class="reviews-slider__slide-img">
-              <img src="./images/reviews/ava4.jpg" alt="" />
-            </div>
-            <div class="reviews-slider__slide-date">05.02.2020</div>
-            <div class="reviews-slider__slide-title">Анютка Дюгурова</div>
-            <div class="reviews-slider__slide-descr">
-              Предварительная смета была расписана подробно, понятно по каждому
-              виду работ. Фактическая смета Выражаю свою благодарность компании,
-              проводившей полный ремонт *под ключ* в моей однокомнатной
-              квартире... <a class="link-reviews-detail">Подробнее</a>
-            </div>
-          </div>
-          <div class="reviews-slider__slide">
-            <div class="reviews-slider__slide-img">
-              <img src="./images/reviews/ava5.jpg" alt="" />
-            </div>
-            <div class="reviews-slider__slide-date">05.02.2020</div>
-            <div class="reviews-slider__slide-title">Анютка Дюгурова</div>
-            <div class="reviews-slider__slide-descr">
-              Выражаю свою благодарность компании, проводившей полный ремонт
-              *под ключ* в моей однокомнатной квартире. Предварительная смета
-              была расписана подробно, понятно по каждому виду работ.
-              Фактическая смета ... <a class="link-reviews-detail">Подробнее</a>
+            <div class="reviews-slider__slide swiper-slide">
+              <div class="reviews-slider__slide-img">
+                <img src="./images/reviews/ava5.jpg" alt="" />
+              </div>
+              <div class="reviews-slider__slide-date">05.02.2020</div>
+              <div class="reviews-slider__slide-title">Анютка Дюгурова</div>
+              <div class="reviews-slider__slide-descr">
+                Выражаю свою благодарность компании, проводившей полный ремонт
+                *под ключ* в моей однокомнатной квартире. Предварительная смета
+                была расписана подробно, понятно по каждому виду работ.
+                Фактическая смета ...
+                <a class="link-reviews-detail">Подробнее</a>
+              </div>
             </div>
           </div>
         </div>

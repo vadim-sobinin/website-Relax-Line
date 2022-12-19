@@ -39,6 +39,7 @@ export const servecesList = (mainBlock) => {
 
     Loading.standard({
       zindex: 10000,
+      backgroundColor: "rgba(0, 0, 0, 0.3)",
     });
     categoryTitleBlock.innerHTML = "";
     categoryTitleBlock.innerHTML = selectedCategory;
