@@ -34,22 +34,27 @@ export const sliders = () => {
     // slideClass: 'slide',
     // slideToClickedSlide: true,
     slidesPerView: 1,
-    // slideActiveClass: "active",
+
     // centeredSlides: true,
     // autoHeight: true,
     // slideToClickedSlide: true,
-
+    slideActiveClass: "active",
     direction: "horizontal",
     // centeredSlides: true,
 
     breakpoints: {
       1024: {
+        slideActiveClass: "swiper-slide-active",
         slidesPerView: 5,
         direction: "vertical",
         slideToClickedSlide: true,
       },
     },
+
     // spaceBetween: 10,
+  });
+  servicesTypeSlider.on("activeIndexChange", () => {
+    changeSlider(servicesTypeSlider.activeIndex + 1);
   });
 
   document.getElementById("repair-counter").style.zIndex = "10";
@@ -82,7 +87,7 @@ export const sliders = () => {
   ];
 
   const changeSlider = (sliderNumber) => {
-    console.log(sliderNumber);
+    // console.log(sliderNumber);
     sliderArray.forEach((slider, index) => {
       slider.disable();
       repairSliders[index].style.display = "none";
@@ -94,7 +99,7 @@ export const sliders = () => {
   };
 
   repairNavList.addEventListener("click", (e) => {
-    if (innerWidth <= 1024) {
+    if (innerWidth > 1024) {
       if (e.target.closest(".repair-types-nav__item")) {
         navButtons.forEach((btn) => {
           btn.classList.contains("active")
@@ -106,10 +111,15 @@ export const sliders = () => {
           .closest(".repair-types-nav__item")
           .classList[2].split("-")[3];
 
+        // servicesTypeSlider.slideTo();
+        // console.log(servicesTypeSlider.clickedIndex);
+        // console.log(servicesTypeSlider.activeIndex);
+        // servicesTypeSlider.activeIndex = servicesTypeSlider.clickedIndex;
+        // console.log(servicesTypeSlider.activeIndex);
+        servicesTypeSlider.update();
         e.target.closest(".repair-types-nav__item").classList.add("active");
+        changeSlider(selectedItemNumber);
       }
-
-      changeSlider(selectedItemNumber);
     }
   });
 
