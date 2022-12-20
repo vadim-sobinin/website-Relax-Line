@@ -1,4 +1,4 @@
-// import Swiper, { Navigation, Pagination } from "swiper";
+import Swiper, { Navigation, Pagination } from "swiper";
 // import Swiper from "swiper/bundle";
 // import Swiper and modules styles
 // import "swiper/css";
@@ -6,12 +6,13 @@
 // import "swiper/css/pagination";
 // import "swiper/css/bundle";
 
-import Swiper from "swiper";
+// import Swiper from "swiper";
 
 // import Swiper from "swiper";
 
 export const sliders = () => {
   const reviewSwiper = new Swiper(".reviews-slider", {
+    modules: [Navigation, Pagination],
     loop: true,
 
     navigation: {
@@ -24,18 +25,37 @@ export const sliders = () => {
   const navButtons = repairNavList.querySelectorAll(".repair-types-nav__item");
 
   const servicesTypeSlider = new Swiper(".nav-list-repair", {
+    modules: [Navigation],
+    navigation: {
+      nextEl: "#nav-arrow-repair-right_base",
+      prevEl: "#nav-arrow-repair-left_base",
+    },
     // wrapperClass: 'nav-list-repair',
     // slideClass: 'slide',
     // slideToClickedSlide: true,
-    slidesPerView: 5,
+    slidesPerView: 1,
+    // slideActiveClass: "active",
+    // centeredSlides: true,
+    // autoHeight: true,
+    // slideToClickedSlide: true,
 
-    direction: "vertical",
-    spaceBetween: 10,
+    direction: "horizontal",
+    // centeredSlides: true,
+
+    breakpoints: {
+      1024: {
+        slidesPerView: 5,
+        direction: "vertical",
+        slideToClickedSlide: true,
+      },
+    },
+    // spaceBetween: 10,
   });
 
   document.getElementById("repair-counter").style.zIndex = "10";
   const createSlider = (selector) => {
     return new Swiper(selector, {
+      modules: [Navigation, Pagination],
       navigation: {
         nextEl: "#repair-types-arrow_right",
         prevEl: "#repair-types-arrow_left",
@@ -68,26 +88,30 @@ export const sliders = () => {
       repairSliders[index].style.display = "none";
     });
     sliderArray[sliderNumber - 1].enable();
-    console.log(sliderArray[sliderNumber - 1]);
-    // sliderArray[sliderNumber - 1].navigation.init();
+    // console.log(sliderArray[sliderNumber - 1]);
+    sliderArray[sliderNumber - 1].pagination.update();
     repairSliders[sliderNumber - 1].style.display = "block";
   };
 
   repairNavList.addEventListener("click", (e) => {
-    if (e.target.closest(".repair-types-nav__item")) {
-      navButtons.forEach((btn) => {
-        btn.classList.contains("active")
-          ? btn.classList.remove("active")
-          : null;
-      });
+    if (innerWidth <= 1024) {
+      if (e.target.closest(".repair-types-nav__item")) {
+        navButtons.forEach((btn) => {
+          btn.classList.contains("active")
+            ? btn.classList.remove("active")
+            : null;
+        });
 
-      const selectedItemNumber = e.target
-        .closest(".repair-types-nav__item")
-        .classList[2].split("-")[3];
+        const selectedItemNumber = e.target
+          .closest(".repair-types-nav__item")
+          .classList[2].split("-")[3];
 
-      e.target.closest(".repair-types-nav__item").classList.add("active");
+        e.target.closest(".repair-types-nav__item").classList.add("active");
+      }
 
       changeSlider(selectedItemNumber);
     }
   });
+
+  changeSlider(1);
 };

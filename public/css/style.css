@@ -7292,13 +7292,13 @@ div.wave-block:nth-child(17):after {
 }
 
 .nav-list-repair {
-  min-width: 390px;
+  min-width: 0px;
   display: block;
 }
 
 @media (max-width: 1024px) {
   .nav-list-repair {
-    min-width: 1200px;
+    /* min-width: 1200px;  */
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -7310,7 +7310,7 @@ div.wave-block:nth-child(17):after {
 
 @media (max-width: 575px) {
   .nav-list-repair {
-    min-width: 1086px;
+    /* min-width: 1086px; */
   }
 }
 

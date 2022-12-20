@@ -16,6 +16,19 @@
 }
 .repair-types-nav__item {
   flex-shrink: 0;
+  /* flex-grow: 0; */
+  /* height: 0 !important; */
   /* display: block; */
-  /* height: 46px !important; */
+  height: 46px !important;
+  /* margin: 0 auto; */
+}
+
+.repair-types-nav__item {
+  position: relative;
+  text-align: center;
+}
+.repair-types-nav__item svg {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
