@@ -3,6 +3,7 @@ import { formControl } from "./modules/formControl";
 import { menu } from "./modules/menu";
 import { phoneMask, nameValidator } from "./modules/phoneMask";
 import { sliders } from "./modules/sliders";
+import { portfolio } from "./modules/portfolio";
 
 phoneMask(".feedback__input-input");
 phoneMask(".feedback-block__form-input_phone");
@@ -16,3 +17,4 @@ formControl("#feedback6");
 menu();
 accordeon();
 sliders();
+portfolio();

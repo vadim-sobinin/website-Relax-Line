@@ -32,3 +32,34 @@
   left: 50%;
   transform: translateX(-50%);
 }
+
+/* Portfolio */
+
+/* .portfolio-slider {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  transition-property: transform;
+  box-sizing: content-box;
+}
+
+.portfolio-slider__slide {
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition-property: transform;
+} */
+
+.popup-portfolio-text {
+  display: block;
+}
+
+.popup_text_swiper {
+  width: 33%;
+}
+.popup_text_swiper .swiper-wrapper {
+  padding: 20px;
+}
