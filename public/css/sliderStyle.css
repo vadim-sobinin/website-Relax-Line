@@ -63,3 +63,21 @@
 .popup_text_swiper .swiper-wrapper {
   padding: 20px;
 }
+
+@media (max-width: 1024px) {
+  .popup_text_swiper {
+    width: 100%;
+    height: auto;
+    padding: 15px;
+  }
+  .popup-dialog-portfolio {
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+  .popup_text_swiper .swiper-wrapper {
+    padding: 0;
+  }
+  .popup-portfolio-text-important {
+    flex-wrap: nowrap;
+  }
+}

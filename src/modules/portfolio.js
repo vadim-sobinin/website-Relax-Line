@@ -1,8 +1,14 @@
-import Swiper, { Navigation, Pagination, Controller } from "swiper";
+import Swiper, { Navigation, Pagination, Controller, Grid } from "swiper";
+import { blockBody, unBlockBody } from "./helpers";
+
 export const portfolio = () => {
   const portfolioSlider = new Swiper(".portfolio-slider", {
-    modules: [Navigation, Pagination],
+    modules: [Navigation, Pagination, Grid],
     slidesPerView: 1,
+    slidesPerColumn: 1,
+    grid: {
+      rows: 1,
+    },
     navigation: {
       nextEl: "#portfolio-arrow_right",
       prevEl: "#portfolio-arrow_left",
@@ -20,16 +26,37 @@ export const portfolio = () => {
     breakpoints: {
       // when window width is >= 320px
       901: {
+        grid: {
+          rows: 2,
+        },
         slidesPerView: 2,
       },
       1025: {
+        grid: {
+          rows: 2,
+        },
         slidesPerView: 3,
       },
     },
   });
 
+  const portfolioSlides = document.querySelectorAll(
+    ".portfolio-slider__slide-frame"
+  );
+
+  portfolioSlider.on("snapGridLengthChange", () =>
+    portfolioSlides.forEach(
+      (slide) =>
+        (slide.style.height = 100 / portfolioSlider.params.grid.rows + "%")
+    )
+  );
+  portfolioSlides.forEach(
+    (slide) =>
+      (slide.style.height = 100 / portfolioSlider.params.grid.rows + "%")
+  );
+
   const portfolioPopupSlider = new Swiper(".popup-portfolio-slider", {
-    modules: [Navigation, Pagination, Controller],
+    modules: [Navigation, Pagination, Controller, Grid],
     navigation: {
       nextEl: "#popup_portfolio_right",
       prevEl: "#popup_portfolio_left",
@@ -47,7 +74,7 @@ export const portfolio = () => {
   });
 
   const portfolioPopupTextSlider = new Swiper(".popup_text_swiper", {
-    modules: [Controller],
+    modules: [Controller, Grid],
   });
   portfolioPopupTextSlider.disable();
   portfolioPopupSlider.controller.control = portfolioPopupTextSlider;
@@ -55,18 +82,19 @@ export const portfolio = () => {
   const arrowShowHide = (swiper) => {
     const leftArrorBtn = swiper.navigation.prevEl;
     const rightArrorBtn = swiper.navigation.nextEl;
-    const lastRightIndex =
-      swiper.slides.length - swiper.originalParams.slidesPerView;
 
     swiper.on("activeIndexChange", () => {
       leftArrorBtn.style.display = swiper.activeIndex !== 0 ? "flex" : "none";
 
+      const lastRightIndex =
+        swiper.slides.length / swiper.params.grid.rows -
+        swiper.params.slidesPerView;
       rightArrorBtn.style.display =
         swiper.activeIndex !== lastRightIndex ? "flex" : "none";
     });
   };
 
-  arrowShowHide(portfolioSlider);
+  arrowShowHide(portfolioSlider, 2);
   arrowShowHide(portfolioPopupSlider);
 
   document.getElementById("popup_portfolio_left").style.zIndex = "1";
@@ -79,8 +107,9 @@ export const portfolio = () => {
   const portfolioPopupBlock = document.querySelector(".popup-portfolio");
 
   portfolioSliderBlock.addEventListener("click", (e) => {
-    if (e.target.closest(".portfolio-slider__slide")) {
+    if (e.target.closest(".portfolio-slider__slide-frame")) {
       portfolioPopupBlock.style.visibility = "visible";
+      blockBody();
     }
   });
 
@@ -90,6 +119,7 @@ export const portfolio = () => {
       e.target.closest(".close")
     ) {
       portfolioPopupBlock.style.visibility = "hidden";
+      unBlockBody();
     }
   });
 };
