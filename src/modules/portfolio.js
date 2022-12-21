@@ -2,10 +2,29 @@ import Swiper, { Navigation, Pagination, Controller } from "swiper";
 export const portfolio = () => {
   const portfolioSlider = new Swiper(".portfolio-slider", {
     modules: [Navigation, Pagination],
-    slidesPerView: 3,
+    slidesPerView: 1,
     navigation: {
       nextEl: "#portfolio-arrow_right",
       prevEl: "#portfolio-arrow_left",
+    },
+    pagination: {
+      el: "#portfolio-counter",
+      type: "fraction",
+      renderFraction: function (currentClass, totalClass) {
+        return `<div class="slider-counter-content">
+        <div class="slider-counter-content__current ${currentClass}"></div>
+        <div class="slider-counter-content__total ${totalClass}"></div>
+      </div>`;
+      },
+    },
+    breakpoints: {
+      // when window width is >= 320px
+      901: {
+        slidesPerView: 2,
+      },
+      1025: {
+        slidesPerView: 3,
+      },
     },
   });
 
@@ -54,6 +73,7 @@ export const portfolio = () => {
   document.getElementById("popup_portfolio_left").style.display = "none";
   document.getElementById("popup_portfolio_right").style.zIndex = "1";
   document.getElementById("popup-portfolio-counter").style.zIndex = "1";
+  document.getElementById("portfolio-counter").style.zIndex = "2";
 
   const portfolioSliderBlock = document.querySelector(".portfolio-slider");
   const portfolioPopupBlock = document.querySelector(".popup-portfolio");
