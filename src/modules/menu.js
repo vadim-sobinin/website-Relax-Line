@@ -1,5 +1,5 @@
 import { unBlockBody, blockBody } from "./helpers";
-import { servecesList } from "./servecesList";
+import { servicesList } from "./servicesList";
 
 export const menu = () => {
   // Second phone
@@ -83,7 +83,7 @@ export const menu = () => {
 
   menuLink.addEventListener("click", () => {
     hideMenu();
-    servecesList(servisesList);
+    servicesList(servisesList);
     servisesList.style.visibility = "visible";
   });
 
@@ -92,7 +92,7 @@ export const menu = () => {
   serviseLinkButton.forEach((button) => {
     button.addEventListener("click", () => {
       blockBody();
-      servecesList(servisesList);
+      servicesList(servisesList);
       servisesList.style.visibility = "visible";
     });
   });

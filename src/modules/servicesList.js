@@ -1,7 +1,7 @@
 import { Loading } from "notiflix/build/notiflix-loading-aio";
 import { Report } from "notiflix/build/notiflix-report-aio";
 
-export const servecesList = (mainBlock) => {
+export const servicesList = (mainBlock) => {
   const typeListBlock = mainBlock.querySelector(".nav-list-popup-repair");
 
   const getTypes = async () => {

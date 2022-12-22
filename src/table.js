@@ -1,5 +1,6 @@
 import { addServices } from "./modules/addServices";
 import { editServices } from "./modules/editServices";
+import { filterServices } from "./modules/filterServices";
 import { removeService } from "./modules/removeService";
 import { render } from "./modules/renderTable";
 import { UserServices } from "./modules/userServices";
@@ -16,4 +17,5 @@ if (!document.cookie) {
   removeService();
   addServices();
   editServices();
+  filterServices();
 }

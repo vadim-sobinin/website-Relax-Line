@@ -28,28 +28,14 @@ export class UserServices {
     }).then((res) => res.json);
   }
 
-  editPermission(id, data) {
-    return fetch(`http://localhost:4545/users/${id}`, {
-      method: "PATCH",
-      body: JSON.stringify(data),
-      headers: { "Content-Type": "application/json; charset=utf-8" },
-    }).then((res) => res.json);
-  }
-
-  filterUsers(filterOpt) {
-    return fetch(`http://localhost:4545/users${filterOpt}`).then((res) =>
+  filterServices(filterOpt) {
+    return fetch(`http://localhost:4545/data${filterOpt}`).then((res) =>
       res.json()
     );
   }
 
-  sortUsers(sortOpt) {
+  sortServices(sortOpt) {
     return fetch(`http://localhost:4545/users${sortOpt}`).then((res) =>
-      res.json()
-    );
-  }
-
-  searchUsers(str) {
-    return fetch(`http://localhost:4545/users?name_like=${str}`).then((res) =>
       res.json()
     );
   }
