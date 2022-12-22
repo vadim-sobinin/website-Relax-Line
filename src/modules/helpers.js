@@ -54,3 +54,22 @@ export const debounce = (func, ms = 300) => {
     }, ms);
   };
 };
+
+export const arrowShowHide = (swiper) => {
+  const leftArrorBtn = swiper.navigation.prevEl;
+  const rightArrorBtn = swiper.navigation.nextEl;
+
+  leftArrorBtn.style.display = "none";
+
+  swiper.on("activeIndexChange", () => {
+    if (swiper.slides.length !== swiper.params.slidesPerView) {
+      leftArrorBtn.style.display = swiper.activeIndex !== 0 ? "flex" : "none";
+
+      const lastRightIndex =
+        swiper.slides.length / swiper.params.grid.rows -
+        swiper.params.slidesPerView;
+      rightArrorBtn.style.display =
+        swiper.activeIndex !== lastRightIndex ? "flex" : "none";
+    }
+  });
+};

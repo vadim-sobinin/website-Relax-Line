@@ -1,5 +1,5 @@
 import Swiper, { Navigation, Pagination, Controller, Grid } from "swiper";
-import { blockBody, unBlockBody } from "./helpers";
+import { blockBody, unBlockBody, arrowShowHide } from "./helpers";
 
 export const portfolio = () => {
   const portfolioSlider = new Swiper(".portfolio-slider", {
@@ -78,21 +78,6 @@ export const portfolio = () => {
   });
   portfolioPopupTextSlider.disable();
   portfolioPopupSlider.controller.control = portfolioPopupTextSlider;
-
-  const arrowShowHide = (swiper) => {
-    const leftArrorBtn = swiper.navigation.prevEl;
-    const rightArrorBtn = swiper.navigation.nextEl;
-
-    swiper.on("activeIndexChange", () => {
-      leftArrorBtn.style.display = swiper.activeIndex !== 0 ? "flex" : "none";
-
-      const lastRightIndex =
-        swiper.slides.length / swiper.params.grid.rows -
-        swiper.params.slidesPerView;
-      rightArrorBtn.style.display =
-        swiper.activeIndex !== lastRightIndex ? "flex" : "none";
-    });
-  };
 
   arrowShowHide(portfolioSlider, 2);
   arrowShowHide(portfolioPopupSlider);

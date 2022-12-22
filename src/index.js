@@ -4,6 +4,7 @@ import { menu } from "./modules/menu";
 import { phoneMask, nameValidator } from "./modules/phoneMask";
 import { sliders } from "./modules/sliders";
 import { portfolio } from "./modules/portfolio";
+import { transparency } from "./modules/transparency";
 
 phoneMask(".feedback__input-input");
 phoneMask(".feedback-block__form-input_phone");
@@ -18,3 +19,4 @@ menu();
 accordeon();
 sliders();
 portfolio();
+transparency();

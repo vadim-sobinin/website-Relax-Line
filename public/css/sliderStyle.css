@@ -12,8 +12,6 @@
   height: 100%;
 }
 
-.slide {
-}
 .repair-types-nav__item {
   flex-shrink: 0;
   /* flex-grow: 0; */
@@ -80,4 +78,8 @@
   .popup-portfolio-text-important {
     flex-wrap: nowrap;
   }
+}
+
+#transparency-popup-counter {
+  z-index: 1;
 }
