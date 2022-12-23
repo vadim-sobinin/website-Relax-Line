@@ -35,7 +35,7 @@ export class UserServices {
   }
 
   sortServices(sortOpt) {
-    return fetch(`http://localhost:4545/users${sortOpt}`).then((res) =>
+    return fetch(`http://localhost:4545/data${sortOpt}`).then((res) =>
       res.json()
     );
   }

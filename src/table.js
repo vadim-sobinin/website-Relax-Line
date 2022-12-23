@@ -3,6 +3,7 @@ import { editServices } from "./modules/editServices";
 import { filterServices } from "./modules/filterServices";
 import { removeService } from "./modules/removeService";
 import { render } from "./modules/renderTable";
+import { sortServices } from "./modules/sortServices";
 import { UserServices } from "./modules/userServices";
 
 if (!document.cookie) {
@@ -18,4 +19,5 @@ if (!document.cookie) {
   addServices();
   editServices();
   filterServices();
+  sortServices();
 }

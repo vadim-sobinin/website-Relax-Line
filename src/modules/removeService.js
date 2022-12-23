@@ -1,4 +1,5 @@
 import { render } from "./renderTable";
+import { getTypes } from "./filterServices";
 export const removeService = () => {
   const tableBody = document.getElementById("tbody");
 
@@ -9,7 +10,8 @@ export const removeService = () => {
       userServices
         .removeService(serviceId)
         .then(() => userServices.getServices())
-        .then((data) => render(data));
+        .then((data) => render(data))
+        .then(() => getTypes());
     }
   });
 };

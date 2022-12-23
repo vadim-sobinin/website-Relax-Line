@@ -1,6 +1,7 @@
 import { unBlockBody, blockBody } from "./helpers";
 import { render } from "./renderTable";
 import { Notify } from "notiflix/build/notiflix-notify-aio";
+import { getTypes } from "./filterServices";
 
 export const addServices = () => {
   const addBtn = document.querySelector(".btn-addItem");
@@ -68,6 +69,7 @@ export const addServices = () => {
         .then(() => userServices.getServices())
         .then((data) => render(data))
         .then(() => {
+          getTypes();
           form.reset;
           modal.style.display = "none";
           unBlockBody();

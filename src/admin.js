@@ -6,5 +6,5 @@ if (document.cookie) {
 } else {
   window.userServices = new UserServices();
 
-  loginUser(6000);
+  loginUser(600);
 }
