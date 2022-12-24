@@ -5,6 +5,7 @@ import { phoneMask, nameValidator } from "./modules/phoneMask";
 import { sliders } from "./modules/sliders";
 import { portfolio } from "./modules/portfolio";
 import { transparency } from "./modules/transparency";
+import { formula } from "./modules/formula";
 
 phoneMask(".feedback__input-input");
 phoneMask(".feedback-block__form-input_phone");
@@ -20,3 +21,4 @@ accordeon();
 sliders();
 portfolio();
 transparency();
+formula();
