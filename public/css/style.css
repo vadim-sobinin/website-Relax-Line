@@ -1124,6 +1124,7 @@ template,
 .formula-slider {
   min-height: 400px;
   margin-top: 102px;
+  overflow: hidden;
 }
 
 @media (max-width: 575px) {
@@ -1385,13 +1386,6 @@ template,
     font-size: 12px;
     top: 100px;
     line-height: 20px;
-  }
-}
-
-@media (max-width: 1024px) {
-  .formula-item-popup:before {
-    -webkit-transform: rotate(180deg);
-    /* transform: rotate(0deg); */
   }
 }
 
@@ -9111,4 +9105,11 @@ strong {
 
 .slider-dots {
   display: none;
+}
+
+@media (max-width: 1024px) {
+  .formula-item-popup:before {
+    -webkit-transform: rotate(180deg);
+    /* transform: rotate(0deg); */
+  }
 }

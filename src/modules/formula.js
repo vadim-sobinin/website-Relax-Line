@@ -1,3 +1,5 @@
+import Swiper, { Navigation, Pagination, Controller, Grid } from "swiper";
+
 export const formula = () => {
   const formulaSection = document.getElementById("formula");
   formulaSection.addEventListener("mouseover", (e) => {
@@ -29,5 +31,18 @@ export const formula = () => {
       popup.style.setProperty("--transform", "rotate(0deg)");
       popup.style.bottom = "90px";
     }
+  });
+
+  const formulaSlider = new Swiper(".formula-slider", {
+    modules: [Navigation, Pagination],
+    slideActiveClass: "active-item",
+    loop: true,
+    slidesPerView: 3,
+    centeredSlides: true,
+    // spaceBetween: 100,
+    navigation: {
+      nextEl: "#formula-arrow_right",
+      prevEl: "#formula-arrow_left",
+    },
   });
 };
