@@ -13,6 +13,11 @@ export const loginUser = (sessionDuration) => {
   submitBtn.style.backgroundColor = "#A9A9A9";
   submitBtn.style.borderColor = "#A9A9A9";
 
+  const backToSiteBtn = document.querySelector(".back-to-site");
+  backToSiteBtn.addEventListener("click", () =>
+    window.location.replace("http://localhost:8080/")
+  );
+
   form.addEventListener("input", () => {
     if (usernameInput.value.length != 0 && passwordInput.value.length != 0) {
       submitBtn.disabled = false;

@@ -15,6 +15,11 @@ if (!document.cookie) {
     render(data);
   });
 
+  const backToSiteBtn = document.querySelector(".back-to-site");
+  backToSiteBtn.addEventListener("click", () =>
+    window.location.replace("http://localhost:8080/")
+  );
+
   removeService();
   addServices();
   editServices();

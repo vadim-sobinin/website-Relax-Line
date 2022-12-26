@@ -24,9 +24,14 @@ export const menu = () => {
     }
   });
 
+  const adminPanelBtn = document.querySelector(".admin-section");
   //Menu button
-  const menuBtn = document.querySelector(".menu");
+  const menuBtn = document.querySelector(".menu-section");
   const menuBlock = document.querySelector(".popup-menu");
+
+  adminPanelBtn.addEventListener("click", () => {
+    window.location.replace("http://localhost:8080/admin/table.html");
+  });
 
   menuBtn.addEventListener("click", (e) => {
     menuBlock.style.visibility = "visible";

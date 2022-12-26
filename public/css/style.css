@@ -9113,3 +9113,17 @@ strong {
     /* transform: rotate(0deg); */
   }
 }
+
+.admin__icon {
+  width: 29px;
+  height: 29px;
+}
+.admin-section {
+  position: absolute;
+  left: -200px;
+  top: -4px;
+  cursor: pointer;
+}
+.menu {
+  position: relative;
+}
