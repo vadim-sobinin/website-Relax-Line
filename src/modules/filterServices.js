@@ -21,7 +21,7 @@ export const getTypes = async () => {
   const typeSelector = document.querySelector("#typeItem");
   typeSelector.innerHTML = '<option value=Все услуги">Все услуги</option>';
   let typesList = await [];
-  await fetch("http://localhost:4545/data")
+  await fetch("https://json-server-relax-line.vercel.app/data")
     .then((resp) => resp.json())
     .then((data) =>
       data.forEach((elem) =>

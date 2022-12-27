@@ -6,7 +6,7 @@ export const servicesList = (mainBlock) => {
 
   const getTypes = async () => {
     let typesList = await [];
-    await fetch("http://localhost:4545/data")
+    await fetch("https://json-server-relax-line.vercel.app/data")
       .then((resp) => resp.json())
       .then((data) =>
         data.forEach((elem) =>
@@ -45,7 +45,9 @@ export const servicesList = (mainBlock) => {
     categoryTitleBlock.innerHTML = selectedCategory;
     tableBody.innerHTML = "";
 
-    fetch(`http://localhost:4545/data?type=${selectedCategory}`)
+    fetch(
+      `https://json-server-relax-line.vercel.app/data?type=${selectedCategory}`
+    )
       .then((res) => res.json())
       .then((data) =>
         data.forEach((elem) => {
